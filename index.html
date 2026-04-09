@@ -8,109 +8,70 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 
 :root {
-  --bg:      #0b0f1c;
-  --bg2:     #111827;
-  --panel:   #161d2e;
-  --panel2:  #1c2640;
-  --border:  #253358;
-  --accent:  #3b82f6;
-  --acch:    #60a5fa;
-  --green:   #10b981;
-  --warn:    #f59e0b;
-  --danger:  #ef4444;
-  --text:    #e2e8f0;
-  --text2:   #94a3b8;
-  --text3:   #475569;
-  --glow:    0 0 16px rgba(59,130,246,0.25);
+  --bg:     #0b0f1c;
+  --bg2:    #111827;
+  --panel:  #161d2e;
+  --panel2: #1c2640;
+  --border: #253358;
+  --accent: #3b82f6;
+  --acch:   #60a5fa;
+  --green:  #10b981;
+  --warn:   #f59e0b;
+  --danger: #ef4444;
+  --text:   #e2e8f0;
+  --text2:  #94a3b8;
+  --text3:  #475569;
+  --glow:   0 0 16px rgba(59,130,246,0.25);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Inter',sans-serif;font-size:14px;line-height:1.5;background:var(--bg);color:var(--text);min-height:100vh;}
 
-/* ── LOGIN ── */
-#loginScreen{
-  position:fixed;inset:0;z-index:999;
-  background:var(--bg);
-  display:flex;align-items:center;justify-content:center;
-}
-#loginScreen::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(59,130,246,0.12) 0%,transparent 70%);
-  pointer-events:none;
-}
-.login-card{
-  position:relative;background:var(--panel);border:1px solid var(--border);
-  border-radius:16px;padding:40px 36px;width:380px;
-  box-shadow:0 32px 80px rgba(0,0,0,0.6);
-}
+/* ══ LOGIN ══════════════════════════════════════════════ */
+#loginScreen{position:fixed;inset:0;z-index:999;background:var(--bg);display:flex;align-items:center;justify-content:center;}
+#loginScreen::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(59,130,246,0.12),transparent 70%);pointer-events:none;}
+.login-card{position:relative;background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:40px 36px;width:380px;box-shadow:0 32px 80px rgba(0,0,0,0.6);}
 .login-logo{text-align:center;font-size:26px;font-weight:700;color:var(--acch);margin-bottom:4px;}
-.login-sub{text-align:center;font-size:11px;color:var(--text3);margin-bottom:28px;letter-spacing:0.5px;text-transform:uppercase;}
+.login-sub{text-align:center;font-size:11px;color:var(--text3);margin-bottom:28px;letter-spacing:.5px;text-transform:uppercase;}
 .role-tabs{display:grid;grid-template-columns:1fr 1fr;gap:5px;background:var(--bg2);border-radius:8px;padding:4px;margin-bottom:22px;}
 .role-tab{padding:8px;border-radius:6px;border:none;font-family:'Inter',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all .15s;color:var(--text3);background:transparent;}
 .role-tab.active{background:var(--panel2);color:var(--text);box-shadow:0 1px 4px rgba(0,0,0,0.3);}
 .lfields{display:none;}.lfields.show{display:block;}
-.linput{
-  width:100%;padding:10px 13px;border-radius:8px;
-  border:1px solid var(--border);background:var(--bg2);
-  color:var(--text);font-family:'Inter',sans-serif;font-size:13px;
-  outline:none;transition:border-color .15s;margin-bottom:10px;
-}
+.linput{width:100%;padding:10px 13px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-family:'Inter',sans-serif;font-size:13px;outline:none;transition:border-color .15s;margin-bottom:10px;}
 .linput:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(59,130,246,0.1);}
 .linput::placeholder{color:var(--text3);}
 .lerr{font-size:12px;color:var(--danger);text-align:center;margin-bottom:8px;min-height:18px;}
-.lbtn{
-  width:100%;padding:11px;border-radius:8px;border:none;
-  background:var(--accent);color:#fff;
-  font-family:'Inter',sans-serif;font-size:14px;font-weight:600;
-  cursor:pointer;transition:all .15s;
-}
+.lbtn{width:100%;padding:11px;border-radius:8px;border:none;background:var(--accent);color:#fff;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:all .15s;}
 .lbtn:hover{background:var(--acch);box-shadow:var(--glow);}
 .lbtn.viewer{background:rgba(59,130,246,0.1);color:var(--acch);border:1px solid rgba(59,130,246,0.3);}
 .lbtn.viewer:hover{background:rgba(59,130,246,0.18);}
 .lfooter{margin-top:18px;text-align:center;font-size:11px;color:var(--text3);}
 
-/* ── TOP BAR ── */
-.topbar{
-  position:sticky;top:0;z-index:50;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 24px;height:58px;
-  background:var(--bg2);border-bottom:1px solid var(--border);
-  box-shadow:0 2px 16px rgba(0,0,0,0.4);
-}
+/* ══ TOP BAR ════════════════════════════════════════════ */
+.topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:58px;background:var(--bg2);border-bottom:1px solid var(--border);box-shadow:0 2px 16px rgba(0,0,0,0.4);}
 .logo{font-size:16px;font-weight:700;color:var(--acch);}
 .nav-tabs{display:flex;gap:4px;}
-.nav-tab{
-  padding:7px 18px;border-radius:6px;border:1px solid transparent;
-  background:transparent;color:var(--text2);
-  font-family:'Inter',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all .15s;
-}
+.nav-tab{padding:7px 18px;border-radius:6px;border:1px solid transparent;background:transparent;color:var(--text2);font-family:'Inter',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:all .15s;}
 .nav-tab:hover{color:var(--text);background:var(--panel);}
 .nav-tab.active{background:rgba(59,130,246,0.12);border-color:rgba(59,130,246,0.35);color:var(--acch);}
 .user-info{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text2);}
 .badge{padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:.4px;text-transform:uppercase;}
 .badge-admin{background:rgba(245,158,11,0.15);color:var(--warn);border:1px solid rgba(245,158,11,0.3);}
 .badge-viewer{background:rgba(59,130,246,0.12);color:var(--acch);border:1px solid rgba(59,130,246,0.25);}
-.logout-btn{
-  padding:5px 12px;border-radius:6px;border:1px solid rgba(239,68,68,0.3);
-  background:transparent;color:var(--danger);font-size:12px;font-weight:500;cursor:pointer;transition:all .15s;
-}
+.logout-btn{padding:5px 12px;border-radius:6px;border:1px solid rgba(239,68,68,0.3);background:transparent;color:var(--danger);font-size:12px;font-weight:500;cursor:pointer;transition:all .15s;}
 .logout-btn:hover{background:rgba(239,68,68,0.1);}
 
-/* ── SYNC BAR ── */
-.sync-bar{
-  display:flex;align-items:center;gap:10px;padding:8px 24px;
-  background:rgba(59,130,246,0.04);border-bottom:1px solid var(--border);
-  font-size:12px;color:var(--text2);flex-wrap:wrap;
-}
+/* ══ SYNC BAR ═══════════════════════════════════════════ */
+.sync-bar{display:flex;align-items:center;gap:10px;padding:8px 24px;background:rgba(59,130,246,0.04);border-bottom:1px solid var(--border);font-size:12px;color:var(--text2);flex-wrap:wrap;}
 .sync-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
 .dot-ok{background:var(--green);box-shadow:0 0 6px var(--green);}
 .dot-warn{background:var(--warn);}
 .dot-err{background:var(--danger);}
 .dot-idle{background:var(--text3);}
 
-/* ── CONTENT ── */
+/* ══ CONTENT ════════════════════════════════════════════ */
 .content{padding:24px;}
 
-/* ── STATS ── */
+/* ══ STATS ══════════════════════════════════════════════ */
 .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px;}
 .stat-card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:18px 20px;position:relative;overflow:hidden;}
 .stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
@@ -126,146 +87,161 @@ body{font-family:'Inter',sans-serif;font-size:14px;line-height:1.5;background:va
 .sc-red .stat-value{color:var(--danger);}
 .stat-sub{font-size:11px;color:var(--text3);margin-top:5px;}
 
-/* ── SEARCH ── */
-.search-input{
-  padding:9px 14px;border-radius:7px;
-  border:1px solid var(--border);background:var(--panel);
-  color:var(--text);font-size:13px;font-family:'Inter',sans-serif;
-  outline:none;transition:border-color .15s;
-}
+/* ══ DASHBOARD GRID ═════════════════════════════════════ */
+.search-input{padding:9px 14px;border-radius:7px;border:1px solid var(--border);background:var(--panel);color:var(--text);font-size:13px;font-family:'Inter',sans-serif;outline:none;transition:border-color .15s;}
 .search-input:focus{border-color:var(--accent);}
 .search-input::placeholder{color:var(--text3);}
-
-/* ── DASHBOARD CAT GRID ── */
-.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-.cat-card{background:var(--panel);border:1px solid var(--border);border-radius:10px;overflow:hidden;}
-.cat-head{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:13px 16px;background:var(--panel2);border-bottom:1px solid var(--border);
-}
-.cat-title{font-size:13px;font-weight:700;color:var(--acch);}
-.cat-badge{
-  font-size:11px;font-weight:600;color:var(--text2);
-  background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2);
-  padding:2px 8px;border-radius:10px;font-family:'JetBrains Mono',monospace;
-}
-.item-row{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:10px 16px;border-bottom:1px solid rgba(37,51,88,0.5);transition:background .12s;
-}
-.item-row:last-child{border-bottom:none;}
-.item-row:hover{background:rgba(59,130,246,0.04);}
-.item-name{font-size:12px;font-weight:500;color:var(--text);flex:1;margin-right:10px;}
+.dash-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.dash-cat-card{background:var(--panel);border:1px solid var(--border);border-radius:10px;overflow:hidden;}
+.dash-cat-head{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;background:var(--panel2);border-bottom:1px solid var(--border);}
+.dash-cat-title{font-size:13px;font-weight:700;color:var(--acch);}
+.dash-cat-badge{font-size:11px;font-weight:600;color:var(--text2);background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2);padding:2px 8px;border-radius:10px;font-family:'JetBrains Mono',monospace;}
+.dash-item-row{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-bottom:1px solid rgba(37,51,88,0.5);transition:background .12s;}
+.dash-item-row:last-child{border-bottom:none;}
+.dash-item-row:hover{background:rgba(59,130,246,0.04);}
+.dash-item-name{font-size:12px;font-weight:500;color:var(--text);flex:1;margin-right:10px;}
 .rev-chips{display:flex;gap:5px;flex-wrap:wrap;}
-.rev-chip{
-  display:flex;align-items:center;gap:4px;padding:2px 8px;border-radius:5px;
-  font-family:'JetBrains Mono',monospace;font-size:11px;
-  background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2);
-}
-.rev-chip .rlabel{color:var(--text2);}
-.rev-chip .rqty{color:var(--acch);font-weight:700;}
+.rev-chip{display:flex;align-items:center;gap:4px;padding:2px 8px;border-radius:5px;font-family:'JetBrains Mono',monospace;font-size:11px;background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2);}
+.rev-chip .rl{color:var(--text2);}
+.rev-chip .rq{color:var(--acch);font-weight:700;}
 .rev-chip.low{background:rgba(239,68,68,0.1);border-color:rgba(239,68,68,0.25);}
-.rev-chip.low .rqty{color:var(--danger);}
+.rev-chip.low .rq{color:var(--danger);}
 
-/* ── ADMIN LAYOUT ── */
-.admin-layout{display:grid;grid-template-columns:240px 1fr;gap:18px;}
-.sidebar{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px;}
-.sidebar-label{font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.7px;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--border);}
-.cat-btn{
-  width:100%;text-align:left;display:flex;align-items:center;justify-content:space-between;
-  padding:9px 10px;border-radius:6px;border:1px solid transparent;background:transparent;
-  color:var(--text2);font-family:'Inter',sans-serif;font-size:13px;font-weight:500;
-  cursor:pointer;transition:all .12s;margin-bottom:2px;
-}
-.cat-btn:hover{background:var(--panel2);color:var(--text);}
-.cat-btn.active{background:rgba(59,130,246,0.12);border-color:rgba(59,130,246,0.3);color:var(--acch);}
-.cat-btn-inner{display:flex;align-items:center;gap:6px;flex:1;min-width:0;}
-.cat-btn-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.cat-count{font-size:11px;background:var(--bg2);color:var(--text3);padding:1px 7px;border-radius:10px;font-family:'JetBrains Mono',monospace;flex-shrink:0;}
-.cat-actions{display:flex;gap:2px;opacity:0;transition:opacity .15s;}
-.cat-btn:hover .cat-actions{opacity:1;}
-.cat-act-btn{
-  padding:2px 6px;border-radius:4px;border:none;background:transparent;
-  font-size:11px;cursor:pointer;transition:all .12s;line-height:1.4;
-}
-.cat-act-btn.edit{color:var(--warn);}
-.cat-act-btn.edit:hover{background:rgba(245,158,11,0.15);}
-.cat-act-btn.del{color:var(--danger);}
-.cat-act-btn.del:hover{background:rgba(239,68,68,0.15);}
+/* ══ ADMIN PANEL — CATEGORY CARDS ═══════════════════════ */
+.admin-toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:10px;}
+.admin-toolbar-left{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+.admin-toolbar-right{display:flex;gap:8px;}
 
-.main-card{background:var(--panel);border:1px solid var(--border);border-radius:10px;overflow:hidden;}
-.main-head{
+/* Search + filter bar */
+.admin-search-wrap{position:relative;}
+.admin-search-wrap input{padding:8px 12px 8px 34px;border-radius:7px;border:1px solid var(--border);background:var(--panel);color:var(--text);font-size:13px;font-family:'Inter',sans-serif;outline:none;transition:border-color .15s;width:260px;}
+.admin-search-wrap input:focus{border-color:var(--accent);}
+.admin-search-wrap input::placeholder{color:var(--text3);}
+.admin-search-wrap::before{content:'🔍';position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:12px;pointer-events:none;}
+
+/* Category section card */
+.cat-section{background:var(--panel);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:18px;}
+.cat-section-head{
   display:flex;align-items:center;justify-content:space-between;
   padding:14px 18px;background:var(--panel2);border-bottom:1px solid var(--border);
+  cursor:pointer;user-select:none;
 }
-.main-title{font-size:14px;font-weight:700;color:var(--text);}
+.cat-section-head:hover{background:#1f2f52;}
+.cat-section-title{display:flex;align-items:center;gap:10px;}
+.cat-section-name{font-size:15px;font-weight:700;color:var(--acch);}
+.cat-section-count{
+  font-size:11px;font-weight:600;
+  background:rgba(59,130,246,0.12);border:1px solid rgba(59,130,246,0.25);
+  color:var(--acch);padding:2px 9px;border-radius:10px;font-family:'JetBrains Mono',monospace;
+}
+.cat-section-stock{font-size:11px;color:var(--text3);font-family:'JetBrains Mono',monospace;}
+.cat-section-actions{display:flex;align-items:center;gap:6px;}
+.cat-chevron{font-size:12px;color:var(--text3);transition:transform .2s;margin-left:4px;}
+.cat-chevron.open{transform:rotate(180deg);}
 
-/* ── TABLE ── */
-table{width:100%;border-collapse:collapse;}
-th{padding:10px 16px;text-align:left;font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.6px;background:var(--bg2);border-bottom:1px solid var(--border);}
-td{padding:11px 16px;font-size:13px;border-bottom:1px solid rgba(37,51,88,0.4);color:var(--text);vertical-align:middle;}
-tr:last-child td{border-bottom:none;}
-tbody tr:hover td{background:rgba(59,130,246,0.03);}
-.item-code{font-size:11px;color:var(--text3);font-family:'JetBrains Mono',monospace;}
-.rev-edit{display:flex;gap:6px;flex-wrap:wrap;}
-.rev-edit-chip{
-  display:flex;align-items:center;gap:4px;padding:3px 8px;border-radius:5px;
+/* Items table inside each category */
+.cat-body{display:block;}
+.cat-body.collapsed{display:none;}
+
+.parts-table{width:100%;border-collapse:collapse;}
+.parts-table th{
+  padding:9px 16px;text-align:left;
+  font-size:11px;font-weight:600;color:var(--text3);
+  text-transform:uppercase;letter-spacing:.6px;
+  background:var(--bg2);border-bottom:1px solid var(--border);
+}
+.parts-table td{
+  padding:12px 16px;font-size:13px;
+  border-bottom:1px solid rgba(37,51,88,0.35);
+  color:var(--text);vertical-align:middle;
+}
+.parts-table tr:last-child td{border-bottom:none;}
+.parts-table tbody tr{transition:background .12s;}
+.parts-table tbody tr:hover td{background:rgba(59,130,246,0.04);}
+
+/* Part name column */
+.part-name{font-weight:600;font-size:13px;color:var(--text);}
+.part-name-sub{font-size:11px;color:var(--text3);margin-top:1px;}
+
+/* Rev+qty inline editing */
+.rev-table{display:flex;flex-wrap:wrap;gap:6px;align-items:center;}
+.rev-cell{
+  display:flex;align-items:center;gap:3px;
   background:var(--bg2);border:1px solid var(--border);
-  font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text2);
+  border-radius:6px;padding:4px 8px;
+  font-family:'JetBrains Mono',monospace;font-size:12px;
 }
-.rev-edit-chip input{
-  width:38px;background:transparent;border:none;
-  border-bottom:1px solid var(--accent);color:var(--acch);
-  font-family:'JetBrains Mono',monospace;font-size:11px;text-align:center;outline:none;
+.rev-cell-label{color:var(--text2);font-weight:500;}
+.rev-cell-input{
+  width:44px;background:transparent;border:none;
+  border-bottom:1px solid var(--accent);
+  color:var(--acch);font-family:'JetBrains Mono',monospace;
+  font-size:12px;font-weight:600;text-align:center;outline:none;
+  padding:0 2px;
 }
-.qty-total{font-size:18px;font-weight:700;}
-.qty-ok{color:var(--green);}.qty-warn{color:var(--warn);}.qty-low{color:var(--danger);}
+.rev-cell-unit{color:var(--text3);font-size:11px;}
 
-/* ── BUTTONS ── */
+/* Total qty badge */
+.qty-badge{
+  display:inline-flex;align-items:baseline;gap:3px;
+  font-weight:700;font-size:20px;
+}
+.qty-ok  {color:var(--green);}
+.qty-warn{color:var(--warn);}
+.qty-low {color:var(--danger);}
+.qty-unit{font-size:11px;color:var(--text3);font-weight:400;}
+
+/* Action buttons */
+.action-btns{display:flex;gap:6px;}
 .btn{padding:7px 14px;border-radius:6px;border:none;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:all .15s;}
 .btn-primary{background:var(--accent);color:#fff;}
 .btn-primary:hover{background:var(--acch);box-shadow:var(--glow);}
 .btn-ghost{background:transparent;color:var(--text2);border:1px solid var(--border);}
 .btn-ghost:hover{border-color:var(--accent);color:var(--acch);}
 .btn-edit{background:rgba(245,158,11,0.12);color:var(--warn);border:1px solid rgba(245,158,11,0.25);}
-.btn-edit:hover{background:rgba(245,158,11,0.2);}
+.btn-edit:hover{background:rgba(245,158,11,0.22);}
 .btn-del{background:rgba(239,68,68,0.1);color:var(--danger);border:1px solid rgba(239,68,68,0.25);}
 .btn-del:hover{background:rgba(239,68,68,0.2);}
 .btn-green{background:rgba(16,185,129,0.12);color:var(--green);border:1px solid rgba(16,185,129,0.25);}
 .btn-green:hover{background:rgba(16,185,129,0.2);}
 .btn-sm{padding:4px 10px;font-size:11px;}
-.action-btns{display:flex;gap:6px;}
+.btn-xs{padding:3px 8px;font-size:11px;}
 
-/* ── MODAL/OVERLAY ── */
+/* Add item row inside table */
+.add-item-row td{padding:8px 16px;background:rgba(59,130,246,0.02);}
+.add-item-inline-btn{
+  display:flex;align-items:center;gap:6px;
+  padding:6px 12px;border-radius:6px;border:1px dashed rgba(59,130,246,0.35);
+  background:transparent;color:var(--acch);font-size:12px;font-weight:500;
+  cursor:pointer;transition:all .15s;font-family:'Inter',sans-serif;
+}
+.add-item-inline-btn:hover{background:rgba(59,130,246,0.08);border-color:var(--acch);}
+
+/* ══ MODAL/OVERLAY ══════════════════════════════════════ */
 .overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.65);backdrop-filter:blur(3px);z-index:200;align-items:center;justify-content:center;}
 .overlay.open{display:flex;}
-.modal{background:var(--panel2);border:1px solid var(--border);border-radius:12px;padding:26px;width:500px;box-shadow:0 24px 64px rgba(0,0,0,0.6);}
+.modal{background:var(--panel2);border:1px solid var(--border);border-radius:12px;padding:26px;width:500px;box-shadow:0 24px 64px rgba(0,0,0,0.6);max-height:90vh;overflow-y:auto;}
 .modal-title{font-size:16px;font-weight:700;color:var(--text);margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--border);}
 .form-group{margin-bottom:14px;}
 .form-label{display:block;font-size:11px;font-weight:600;color:var(--text3);letter-spacing:.6px;text-transform:uppercase;margin-bottom:5px;}
-.form-input,.form-select{
-  width:100%;padding:8px 11px;border-radius:6px;
-  border:1px solid var(--border);background:var(--bg2);
-  color:var(--text);font-family:'Inter',sans-serif;font-size:13px;
-  outline:none;transition:border-color .15s;
-}
+.form-input,.form-select{width:100%;padding:8px 11px;border-radius:6px;border:1px solid var(--border);background:var(--bg2);color:var(--text);font-family:'Inter',sans-serif;font-size:13px;outline:none;transition:border-color .15s;}
 .form-input:focus,.form-select:focus{border-color:var(--accent);}
 .rev-row{display:grid;grid-template-columns:90px 1fr auto;gap:8px;align-items:center;margin-bottom:6px;}
 .modal-footer{display:flex;justify-content:flex-end;gap:8px;margin-top:20px;padding-top:16px;border-top:1px solid var(--border);}
 
-/* ── ALERT ── */
+/* ══ ALERT ══════════════════════════════════════════════ */
 .alert{position:fixed;top:72px;right:24px;z-index:300;padding:11px 18px;border-radius:8px;font-size:13px;font-weight:500;opacity:0;transform:translateX(16px);transition:all .25s;pointer-events:none;}
 .alert.show{opacity:1;transform:translateX(0);}
 .alert-ok{background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.3);color:var(--green);}
 .alert-err{background:rgba(239,68,68,0.15);border:1px solid rgba(239,68,68,0.3);color:var(--danger);}
 .alert-info{background:rgba(59,130,246,0.12);border:1px solid rgba(59,130,246,0.3);color:var(--acch);}
 
-/* ── SETUP ── */
+/* ══ SETUP GUIDE ════════════════════════════════════════ */
 .setup-steps{list-style:none;counter-reset:step;}
 .setup-steps li{counter-increment:step;font-size:13px;color:var(--text2);padding:5px 0 5px 34px;position:relative;line-height:1.6;}
 .setup-steps li::before{content:counter(step);position:absolute;left:0;top:5px;width:22px;height:22px;background:rgba(59,130,246,0.2);color:var(--acch);font-size:11px;font-weight:700;border-radius:50%;display:flex;align-items:center;justify-content:center;}
 .setup-steps code{font-family:'JetBrains Mono',monospace;font-size:11px;background:var(--bg2);padding:1px 5px;border-radius:3px;color:var(--acch);}
-.empty-state{padding:48px;text-align:center;color:var(--text3);font-size:13px;}
+.empty-state{padding:40px;text-align:center;color:var(--text3);font-size:13px;}
 
 ::-webkit-scrollbar{width:5px;}
 ::-webkit-scrollbar-track{background:var(--bg2);}
@@ -274,7 +250,7 @@ tbody tr:hover td{background:rgba(59,130,246,0.03);}
 </head>
 <body>
 
-<!-- ═══ LOGIN SCREEN ═══ -->
+<!-- ══ LOGIN ════════════════════════════════════════════ -->
 <div id="loginScreen">
   <div class="login-card">
     <div class="login-logo">⬡ Mold Parts</div>
@@ -286,14 +262,14 @@ tbody tr:hover td{background:rgba(59,130,246,0.03);}
     <div class="lfields show" id="adminFields">
       <input class="linput" id="loginUser" type="text" placeholder="Username" autocomplete="username"
         onkeydown="if(event.key==='Enter')document.getElementById('loginPass').focus()">
-      <input class="linput" id="loginPass" type="password" placeholder="Password" autocomplete="current-password"
+      <input class="linput" id="loginPass" type="password" placeholder="Password"
         onkeydown="if(event.key==='Enter')doLogin()">
       <div class="lerr" id="loginErr"></div>
       <button class="lbtn" onclick="doLogin()">Login as Admin</button>
     </div>
     <div class="lfields" id="viewerFields">
       <p style="font-size:13px;color:var(--text2);text-align:center;margin-bottom:16px;line-height:1.6">
-        View-only access shows live stock levels without any editing.
+        View-only access shows live stock levels without editing.
       </p>
       <button class="lbtn viewer" onclick="enterAsViewer()">Enter as Viewer</button>
     </div>
@@ -301,7 +277,7 @@ tbody tr:hover td{background:rgba(59,130,246,0.03);}
   </div>
 </div>
 
-<!-- ═══ TOP BAR ═══ -->
+<!-- ══ TOP BAR ══════════════════════════════════════════ -->
 <div class="topbar">
   <div class="logo">⬡ Mold Parts · Inventory</div>
   <div class="nav-tabs">
@@ -310,12 +286,12 @@ tbody tr:hover td{background:rgba(59,130,246,0.03);}
   </div>
   <div class="user-info">
     <span id="userLabel" style="font-weight:500">—</span>
-    <span class="badge badge-viewer" id="userBadge">—</span>
+    <span class="badge" id="userBadge">—</span>
     <button class="logout-btn" onclick="doLogout()">⏻ Logout</button>
   </div>
 </div>
 
-<!-- ═══ SYNC BAR ═══ -->
+<!-- ══ SYNC BAR ══════════════════════════════════════════ -->
 <div class="sync-bar">
   <div class="sync-dot dot-idle" id="syncDot"></div>
   <span id="syncStatus" style="font-weight:500;white-space:nowrap">Not connected</span>
@@ -327,83 +303,62 @@ tbody tr:hover td{background:rgba(59,130,246,0.03);}
   </div>
 </div>
 
-<!-- ALERT -->
 <div class="alert" id="alert"></div>
 
-<!-- ═══ DASHBOARD ═══ -->
+<!-- ══ DASHBOARD VIEW ════════════════════════════════════ -->
 <div class="content" id="dashboardView">
-  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
-    <div style="font-size:18px;font-weight:700">Stock Overview</div>
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-wrap:wrap;gap:10px;">
+    <div style="font-size:18px;font-weight:700;">Stock Overview</div>
     <div style="font-size:12px;color:var(--text3)" id="lastUpdated"></div>
   </div>
   <div class="stats-row" id="statsRow"></div>
   <div style="margin-bottom:20px">
-    <input class="search-input" style="width:100%;max-width:400px" placeholder="🔍  Search items or categories…" oninput="filterDashboard(this.value)">
+    <input class="search-input" style="width:100%;max-width:380px" placeholder="🔍  Search items or categories…" oninput="filterDashboard(this.value)">
   </div>
-  <div class="cat-grid" id="catGrid"></div>
+  <div class="dash-grid" id="dashGrid"></div>
 </div>
 
-<!-- ═══ ADMIN PANEL ═══ -->
+<!-- ══ ADMIN PANEL VIEW ══════════════════════════════════ -->
 <div class="content" id="adminView" style="display:none">
-  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
-    <div style="font-size:18px;font-weight:700">Admin Panel</div>
-    <div style="display:flex;gap:8px">
-      <button class="btn btn-green" onclick="pushToSheet()">⬆ Push to Sheet</button>
-      <button class="btn btn-primary" onclick="openAddItem()">+ Add Item</button>
-    </div>
-  </div>
-  <div class="admin-layout">
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <div class="sidebar-label">Categories</div>
-      <div id="catList"></div>
-      <button class="btn btn-ghost btn-sm" style="width:100%;margin-top:10px;border-style:dashed" onclick="openAddCat()">+ Add Category</button>
-    </div>
-    <!-- Main table -->
-    <div class="main-card">
-      <div class="main-head">
-        <div class="main-title" id="mainTitle">All Items</div>
-        <input class="search-input" style="width:200px;font-size:12px;padding:6px 10px"
-          placeholder="Search…" oninput="filterAdmin(this.value)" id="adminSearch">
+
+  <!-- Toolbar -->
+  <div class="admin-toolbar">
+    <div style="font-size:18px;font-weight:700;">Admin Panel</div>
+    <div class="admin-toolbar-left">
+      <div class="admin-search-wrap">
+        <input id="adminSearch" placeholder="Search parts…" oninput="filterAdmin(this.value)">
       </div>
-      <table>
-        <thead>
-          <tr>
-            <th>Item Name</th>
-            <th>Category</th>
-            <th>Revisions &amp; Qty</th>
-            <th>Total</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody id="adminBody"></tbody>
-      </table>
+      <button class="btn btn-ghost btn-sm" onclick="toggleAll()">⊟ Collapse All</button>
+    </div>
+    <div class="admin-toolbar-right">
+      <button class="btn btn-ghost" onclick="openAddCat()">+ Add Category</button>
+      <button class="btn btn-green" onclick="pushToSheet()">⬆ Push to Sheet</button>
+      <button class="btn btn-primary" onclick="openAddItem(null)">+ Add Item</button>
     </div>
   </div>
+
+  <!-- Category sections rendered here -->
+  <div id="adminCards"></div>
 </div>
 
-<!-- ═══ SETUP GUIDE MODAL ═══ -->
+<!-- ══ SETUP GUIDE ═══════════════════════════════════════ -->
 <div class="overlay" id="setupOverlay">
-  <div class="modal" style="width:600px;max-height:88vh;overflow-y:auto">
+  <div class="modal" style="width:600px;">
     <div class="modal-title">🔗 Google Sheets Setup Guide</div>
-    <p style="font-size:13px;color:var(--text2);margin-bottom:16px;line-height:1.6">
-      This app connects to Google Sheets as a free live database via Google Apps Script. Setup takes ~5 minutes.
-    </p>
+    <p style="font-size:13px;color:var(--text2);margin-bottom:16px;line-height:1.6">Connect to Google Sheets as a free live database via Apps Script (~5 min setup).</p>
     <ol class="setup-steps">
-      <li>Open <strong>Google Sheets</strong> and create a new spreadsheet named <code>MoldPartsInventory</code>.</li>
-      <li>Create two tabs: <code>Items</code> and <code>Categories</code>.</li>
-      <li>In <strong>Items</strong> tab, row 1 headers: <code>id</code> · <code>name</code> · <code>category</code> · <code>revs</code><br>
-        <small style="color:var(--text3)">The <code>revs</code> column stores JSON like <code>[{"rev":"A","qty":3}]</code></small></li>
-      <li>In <strong>Categories</strong> tab, row 1 header: <code>name</code>. Add category names below.</li>
-      <li>In Google Sheets, click <strong>Extensions → Apps Script</strong>.</li>
-      <li>Delete all existing code, paste the script below, then <strong>Save (Ctrl+S)</strong>.</li>
-      <li>Click <strong>Deploy → New Deployment</strong>. Type: Web app. Execute as: Me. Who has access: Anyone. Click Deploy &amp; authorize.</li>
-      <li>Copy the <strong>Web App URL</strong> and paste it into the <code>SHEET_URL</code> constant at the top of the HTML file's script section.</li>
-      <li>Click <strong>↻ Sync from Sheet</strong> to load your data.</li>
+      <li>Create a new Google Spreadsheet named <code>MoldPartsInventory</code>.</li>
+      <li>Add two tabs: <code>Items</code> and <code>Categories</code>.</li>
+      <li><strong>Items</strong> tab row 1 headers: <code>id</code> · <code>name</code> · <code>category</code> · <code>revs</code></li>
+      <li><strong>Categories</strong> tab row 1 header: <code>name</code>, then add category names below.</li>
+      <li>Click <strong>Extensions → Apps Script</strong>, delete existing code, paste the script below.</li>
+      <li>Click <strong>Deploy → New Deployment</strong>. Type: Web app. Execute as: Me. Access: Anyone. Click Deploy &amp; authorize.</li>
+      <li>Copy the Web App URL and replace <code>YOUR_APPS_SCRIPT_URL_HERE</code> in the HTML file's <code>SHEET_URL</code> constant.</li>
+      <li>Click <strong>↻ Sync from Sheet</strong>.</li>
     </ol>
     <div style="margin-top:16px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:14px">
-      <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px">Apps Script — paste this entire block:</div>
-      <pre id="scriptCode" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--acch);white-space:pre-wrap;line-height:1.6;user-select:text;max-height:240px;overflow-y:auto"></pre>
+      <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px">Apps Script — paste this:</div>
+      <pre id="scriptCode" style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--acch);white-space:pre-wrap;line-height:1.6;max-height:220px;overflow-y:auto;user-select:text"></pre>
     </div>
     <div class="modal-footer">
       <button class="btn btn-ghost" onclick="closeOverlay('setupOverlay')">Close</button>
@@ -412,7 +367,7 @@ tbody tr:hover td{background:rgba(59,130,246,0.03);}
   </div>
 </div>
 
-<!-- ═══ ADD/EDIT ITEM MODAL ═══ -->
+<!-- ══ ADD / EDIT ITEM MODAL ════════════════════════════ -->
 <div class="overlay" id="itemOverlay">
   <div class="modal">
     <div class="modal-title" id="itemModalTitle">Add Item</div>
@@ -436,7 +391,7 @@ tbody tr:hover td{background:rgba(59,130,246,0.03);}
   </div>
 </div>
 
-<!-- ═══ ADD/EDIT CATEGORY MODAL ═══ -->
+<!-- ══ ADD / RENAME CATEGORY MODAL ══════════════════════ -->
 <div class="overlay" id="catOverlay">
   <div class="modal" style="width:360px">
     <div class="modal-title" id="catModalTitle">Add Category</div>
@@ -451,7 +406,7 @@ tbody tr:hover td{background:rgba(59,130,246,0.03);}
   </div>
 </div>
 
-<!-- ═══ DELETE ITEM CONFIRM ═══ -->
+<!-- ══ DELETE ITEM CONFIRM ═══════════════════════════════ -->
 <div class="overlay" id="delItemOverlay">
   <div class="modal" style="width:360px">
     <div class="modal-title" style="color:var(--danger)">⚠ Delete Item</div>
@@ -464,7 +419,7 @@ tbody tr:hover td{background:rgba(59,130,246,0.03);}
   </div>
 </div>
 
-<!-- ═══ DELETE CATEGORY CONFIRM ═══ -->
+<!-- ══ DELETE CATEGORY CONFIRM ═══════════════════════════ -->
 <div class="overlay" id="delCatOverlay">
   <div class="modal" style="width:380px">
     <div class="modal-title" style="color:var(--danger)">⚠ Delete Category</div>
@@ -479,15 +434,16 @@ tbody tr:hover td{background:rgba(59,130,246,0.03);}
 </div>
 
 <script>
-// ══════════════════════════════════════════════════════════════════════════════
-// ▶▶  PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE  ◀◀
-// ══════════════════════════════════════════════════════════════════════════════
-const SHEET_URL = 'https://script.google.com/macros/s/AKfycbw1A90FecO7bSrZ0KCKR_gdAoUiek5dhpQaBrxFwoKaJ4StPKGKUce0MWP6-gcBiKRZ9A/exec';
-// ══════════════════════════════════════════════════════════════════════════════
+// ══════════════════════════════════════════════════════════════════
+//  ▶▶  PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL BELOW  ◀◀
+// ══════════════════════════════════════════════════════════════════
+const SHEET_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
+// ══════════════════════════════════════════════════════════════════
 
-const CREDS = { username: 'moldinv', password: 'moldinv' };
+const CREDS = { username:'moldinv', password:'moldinv' };
 
-const APPS_SCRIPT = `// Google Apps Script — paste into Extensions > Apps Script
+const APPS_SCRIPT_CODE = `// Paste into Extensions > Apps Script, then deploy as Web App
+// Execute as: Me | Who has access: Anyone
 const ITEMS_SHEET = 'Items';
 const CATS_SHEET  = 'Categories';
 
@@ -495,27 +451,22 @@ function doGet(e)  { return handle(e); }
 function doPost(e) { return handle(e); }
 
 function handle(e) {
-  // Allow CORS
-  const out = (data) => ContentService
-    .createTextOutput(JSON.stringify(data))
+  const wrap = d => ContentService
+    .createTextOutput(JSON.stringify(d))
     .setMimeType(ContentService.MimeType.JSON);
-
   try {
     let action, body = {};
-    if (e.postData && e.postData.contents) {
-      body = JSON.parse(e.postData.contents);
-      action = body.action;
-    } else {
-      action = (e.parameter || {}).action;
-    }
-    if (action === 'getAll')      return out(getAll());
-    if (action === 'saveItem')    return out(saveItem(body.item));
-    if (action === 'deleteItem')  return out(deleteItem(body.id));
-    if (action === 'saveCats')    return out(saveCats(body.categories));
-    return out({ error: 'Unknown action: ' + action });
-  } catch(err) {
-    return out({ error: err.toString() });
-  }
+    const raw = (e.parameter||{}).payload;
+    if (raw) { body = JSON.parse(decodeURIComponent(raw)); action = body.action; }
+    else if (e.postData?.contents) { body = JSON.parse(e.postData.contents); action = body.action; }
+    else action = (e.parameter||{}).action;
+
+    if (action==='getAll')     return wrap(getAll());
+    if (action==='saveItem')   return wrap(saveItem(body.item));
+    if (action==='deleteItem') return wrap(deleteItem(body.id));
+    if (action==='saveCats')   return wrap(saveCats(body.categories));
+    return wrap({error:'Unknown action: '+action});
+  } catch(err) { return wrap({error:err.toString()}); }
 }
 
 function getAll() {
@@ -523,148 +474,122 @@ function getAll() {
   const iRows = ss.getSheetByName(ITEMS_SHEET).getDataRange().getValues();
   const cRows = ss.getSheetByName(CATS_SHEET).getDataRange().getValues();
   const items = [];
-  for (let i = 1; i < iRows.length; i++) {
+  for (let i=1;i<iRows.length;i++) {
     if (!iRows[i][0]) continue;
-    items.push({ id: String(iRows[i][0]), name: String(iRows[i][1]),
-                 category: String(iRows[i][2]),
-                 revs: JSON.parse(iRows[i][3] || '[]') });
+    items.push({id:String(iRows[i][0]),name:String(iRows[i][1]),
+                category:String(iRows[i][2]),revs:JSON.parse(iRows[i][3]||'[]')});
   }
-  const categories = [];
-  for (let i = 1; i < cRows.length; i++) {
-    if (cRows[i][0]) categories.push(String(cRows[i][0]));
-  }
-  return { ok: true, items, categories };
+  const categories=[];
+  for (let i=1;i<cRows.length;i++) { if(cRows[i][0]) categories.push(String(cRows[i][0])); }
+  return {ok:true,items,categories};
 }
-
 function saveItem(item) {
-  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(ITEMS_SHEET);
-  const rows  = sheet.getDataRange().getValues();
-  const json  = JSON.stringify(item.revs || []);
-  for (let i = 1; i < rows.length; i++) {
-    if (String(rows[i][0]) === String(item.id)) {
+  const sheet=SpreadsheetApp.getActiveSpreadsheet().getSheetByName(ITEMS_SHEET);
+  const rows=sheet.getDataRange().getValues();
+  const json=JSON.stringify(item.revs||[]);
+  for (let i=1;i<rows.length;i++) {
+    if (String(rows[i][0])===String(item.id)) {
       sheet.getRange(i+1,1,1,4).setValues([[item.id,item.name,item.category,json]]);
-      return { ok: true };
+      return {ok:true};
     }
   }
-  sheet.appendRow([item.id, item.name, item.category, json]);
-  return { ok: true };
+  sheet.appendRow([item.id,item.name,item.category,json]);
+  return {ok:true};
 }
-
 function deleteItem(id) {
-  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(ITEMS_SHEET);
-  const rows  = sheet.getDataRange().getValues();
-  for (let i = 1; i < rows.length; i++) {
-    if (String(rows[i][0]) === String(id)) { sheet.deleteRow(i+1); return { ok: true }; }
+  const sheet=SpreadsheetApp.getActiveSpreadsheet().getSheetByName(ITEMS_SHEET);
+  const rows=sheet.getDataRange().getValues();
+  for (let i=1;i<rows.length;i++) {
+    if (String(rows[i][0])===String(id)) {sheet.deleteRow(i+1);return {ok:true};}
   }
-  return { error: 'Not found' };
+  return {error:'Not found'};
 }
-
 function saveCats(cats) {
-  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(CATS_SHEET);
-  sheet.clearContents();
-  sheet.appendRow(['name']);
-  cats.forEach(c => sheet.appendRow([c]));
-  return { ok: true };
+  const sheet=SpreadsheetApp.getActiveSpreadsheet().getSheetByName(CATS_SHEET);
+  sheet.clearContents();sheet.appendRow(['name']);
+  cats.forEach(c=>sheet.appendRow([c]));
+  return {ok:true};
 }`;
 
-// ─── STATE ────────────────────────────────────────────────────────────────────
+// ─── STATE ────────────────────────────────────────────────────────
 const S = {
   isAdmin: false,
-  activeCat: 'ALL',
   editItemId: null,
   delItemId: null,
   editCatIdx: null,
   delCatIdx: null,
+  defaultCatForNew: null,
+  collapsedCats: {},      // track which category sections are collapsed
   categories: [
     'Top Cavity','Bottom Cavity','Cull Block',
     'Runner Block','Plunger','Gate Insert','Ejector Pin','Support Pillar'
   ],
   items: [
-    { id:'1',  name:'TSOT/TOWA SIP 4.0MM', category:'Top Cavity',    revs:[{rev:'A',qty:3},{rev:'B',qty:2}] },
-    { id:'2',  name:'ASM 2.5MM',           category:'Top Cavity',    revs:[{rev:'A',qty:1},{rev:'C',qty:4}] },
-    { id:'3',  name:'TSOT 3.0MM',          category:'Top Cavity',    revs:[{rev:'A',qty:2}] },
-    { id:'4',  name:'TSOT/TOWA SIP 4.0MM', category:'Bottom Cavity', revs:[{rev:'A',qty:5},{rev:'B',qty:1}] },
-    { id:'5',  name:'ASM 2.5MM',           category:'Bottom Cavity', revs:[{rev:'A',qty:3}] },
-    { id:'6',  name:'TOWA SIP 5.0MM',      category:'Bottom Cavity', revs:[{rev:'B',qty:2},{rev:'D',qty:1}] },
-    { id:'7',  name:'TSOT/TOWA SIP 4.0MM', category:'Cull Block',    revs:[{rev:'A',qty:6}] },
-    { id:'8',  name:'ASM 2.5MM',           category:'Cull Block',    revs:[{rev:'A',qty:2},{rev:'B',qty:3}] },
-    { id:'9',  name:'TSOT 4.0MM',          category:'Runner Block',  revs:[{rev:'A',qty:4}] },
-    { id:'10', name:'STD PLUNGER 12MM',    category:'Plunger',       revs:[{rev:'A',qty:8},{rev:'B',qty:2}] },
-    { id:'11', name:'HEAVY DUTY 15MM',     category:'Plunger',       revs:[{rev:'A',qty:3}] },
-    { id:'12', name:'STANDARD GATE 2.0MM', category:'Gate Insert',   revs:[{rev:'A',qty:5},{rev:'C',qty:2}] },
-    { id:'13', name:'DIA 1.5MM L80',       category:'Ejector Pin',   revs:[{rev:'A',qty:12}] },
-    { id:'14', name:'DIA 2.0MM L100',      category:'Ejector Pin',   revs:[{rev:'A',qty:8},{rev:'B',qty:4}] },
-    { id:'15', name:'DIA 25MM H60',        category:'Support Pillar',revs:[{rev:'A',qty:6}] },
+    {id:'1', name:'TSOT/TOWA SIP 4.0MM', category:'Top Cavity',    revs:[{rev:'A',qty:3},{rev:'B',qty:2}]},
+    {id:'2', name:'ASM 2.5MM',           category:'Top Cavity',    revs:[{rev:'A',qty:1},{rev:'C',qty:4}]},
+    {id:'3', name:'TSOT 3.0MM',          category:'Top Cavity',    revs:[{rev:'A',qty:2}]},
+    {id:'4', name:'TSOT/TOWA SIP 4.0MM', category:'Bottom Cavity', revs:[{rev:'A',qty:5},{rev:'B',qty:1}]},
+    {id:'5', name:'ASM 2.5MM',           category:'Bottom Cavity', revs:[{rev:'A',qty:3}]},
+    {id:'6', name:'TOWA SIP 5.0MM',      category:'Bottom Cavity', revs:[{rev:'B',qty:2},{rev:'D',qty:1}]},
+    {id:'7', name:'TSOT/TOWA SIP 4.0MM', category:'Cull Block',    revs:[{rev:'A',qty:6}]},
+    {id:'8', name:'ASM 2.5MM',           category:'Cull Block',    revs:[{rev:'A',qty:2},{rev:'B',qty:3}]},
+    {id:'9', name:'TSOT 4.0MM',          category:'Runner Block',  revs:[{rev:'A',qty:4}]},
+    {id:'10',name:'STD PLUNGER 12MM',    category:'Plunger',       revs:[{rev:'A',qty:8},{rev:'B',qty:2}]},
+    {id:'11',name:'HEAVY DUTY 15MM',     category:'Plunger',       revs:[{rev:'A',qty:3}]},
+    {id:'12',name:'STANDARD GATE 2.0MM', category:'Gate Insert',   revs:[{rev:'A',qty:5},{rev:'C',qty:2}]},
+    {id:'13',name:'DIA 1.5MM L80',       category:'Ejector Pin',   revs:[{rev:'A',qty:12}]},
+    {id:'14',name:'DIA 2.0MM L100',      category:'Ejector Pin',   revs:[{rev:'A',qty:8},{rev:'B',qty:4}]},
+    {id:'15',name:'DIA 25MM H60',        category:'Support Pillar',revs:[{rev:'A',qty:6}]},
   ],
   nextId: 16,
 };
 
-// ─── UTILS ────────────────────────────────────────────────────────────────────
+// ─── UTILS ────────────────────────────────────────────────────────
 const $ = id => document.getElementById(id);
 const totalQty = item => item.revs.reduce((s,r)=>s+r.qty,0);
-const getItems = cat => cat==='ALL' ? S.items : S.items.filter(i=>i.category===cat);
+const getItems = cat => S.items.filter(i=>i.category===cat);
 
 function showAlert(msg, type='ok') {
-  const el=$('alert');
-  el.className=`alert alert-${type} show`;
-  el.textContent=msg;
-  clearTimeout(el._t);
-  el._t=setTimeout(()=>el.classList.remove('show'),3000);
+  const el=$('alert'); el.className=`alert alert-${type} show`; el.textContent=msg;
+  clearTimeout(el._t); el._t=setTimeout(()=>el.classList.remove('show'),3000);
 }
 function setTs() {
-  $('lastUpdated').textContent='Updated: '+new Date().toLocaleString('en-SG',{
-    day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'
-  });
+  $('lastUpdated').textContent='Updated: '+new Date().toLocaleString('en-SG',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});
 }
-function setSyncStatus(st, msg) {
-  $('syncDot').className='sync-dot '+({ok:'dot-ok',warn:'dot-warn',err:'dot-err',idle:'dot-idle'}[st]);
+function setSyncStatus(st,msg) {
+  $('syncDot').className='sync-dot '+({ok:'dot-ok',warn:'dot-warn',err:'dot-err',idle:'dot-idle'}[st]||'dot-idle');
   $('syncStatus').textContent=msg;
 }
 
-// ─── LOGIN ────────────────────────────────────────────────────────────────────
+// ─── LOGIN ────────────────────────────────────────────────────────
 function switchLoginRole(role) {
-  $('tabAdmin').classList.toggle('active', role==='admin');
-  $('tabViewer').classList.toggle('active', role==='viewer');
-  $('adminFields').classList.toggle('show', role==='admin');
-  $('viewerFields').classList.toggle('show', role==='viewer');
+  $('tabAdmin').classList.toggle('active',role==='admin');
+  $('tabViewer').classList.toggle('active',role==='viewer');
+  $('adminFields').classList.toggle('show',role==='admin');
+  $('viewerFields').classList.toggle('show',role==='viewer');
   $('loginErr').textContent='';
   if(role==='admin') $('loginUser').focus();
 }
-
 function doLogin() {
-  const user=$('loginUser').value.trim();
-  const pass=$('loginPass').value;
-  if(user===CREDS.username && pass===CREDS.password) {
-    $('loginErr').textContent='';
-    applyRole(true);
-    $('loginScreen').style.display='none';
-    renderDashboard();
-    // Auto-sync on login if URL is set
+  const u=$('loginUser').value.trim(), p=$('loginPass').value;
+  if(u===CREDS.username && p===CREDS.password) {
+    $('loginErr').textContent=''; applyRole(true);
+    $('loginScreen').style.display='none'; renderDashboard();
     if(SHEET_URL && SHEET_URL!=='YOUR_APPS_SCRIPT_URL_HERE') syncFromSheet();
   } else {
     $('loginErr').textContent='Incorrect username or password.';
-    $('loginPass').value='';
-    $('loginPass').focus();
+    $('loginPass').value=''; $('loginPass').focus();
   }
 }
-
 function enterAsViewer() {
-  applyRole(false);
-  $('loginScreen').style.display='none';
-  renderDashboard();
+  applyRole(false); $('loginScreen').style.display='none'; renderDashboard();
   if(SHEET_URL && SHEET_URL!=='YOUR_APPS_SCRIPT_URL_HERE') syncFromSheet();
 }
-
 function doLogout() {
-  applyRole(false);
-  $('loginUser').value='';
-  $('loginPass').value='';
-  $('loginErr').textContent='';
-  switchLoginRole('admin');
-  switchView('dashboard');
-  $('loginScreen').style.display='flex';
+  applyRole(false); $('loginUser').value=''; $('loginPass').value='';
+  $('loginErr').textContent=''; switchLoginRole('admin');
+  switchView('dashboard'); $('loginScreen').style.display='flex';
 }
-
 function applyRole(isAdmin) {
   S.isAdmin=isAdmin;
   if(isAdmin) {
@@ -675,166 +600,53 @@ function applyRole(isAdmin) {
     $('userLabel').textContent='Viewer'; $('adminTab').style.display='none';
   }
 }
-
 function switchView(v) {
   $('dashboardView').style.display=v==='dashboard'?'':'none';
   $('adminView').style.display=v==='admin'?'':'none';
   document.querySelectorAll('.nav-tab').forEach((t,i)=>t.classList.toggle('active',(i===0)===(v==='dashboard')));
   if(v==='dashboard') renderDashboard();
-  if(v==='admin')     renderAdmin();
+  if(v==='admin') renderAdmin();
 }
 
-// ─── GOOGLE SHEETS — FETCH WRAPPER ───────────────────────────────────────────
-// Apps Script deployed as Web App only supports GET natively.
-// We encode the action + body as a GET param to avoid CORS preflight issues.
+// ─── GOOGLE SHEETS ────────────────────────────────────────────────
 async function sheetRequest(action, body={}) {
-  const url = SHEET_URL;
-  if(!url || url==='YOUR_APPS_SCRIPT_URL_HERE') throw new Error('No URL configured');
-
-  // Encode payload as URL param — Apps Script doGet reads e.parameter
-  const payload = encodeURIComponent(JSON.stringify({action, ...body}));
-  const res = await fetch(`${url}?payload=${payload}`, {redirect:'follow'});
-  const text = await res.text();
-  try { return JSON.parse(text); }
-  catch(e) { throw new Error('Bad response: '+text.slice(0,120)); }
+  if(!SHEET_URL||SHEET_URL==='YOUR_APPS_SCRIPT_URL_HERE') throw new Error('URL not configured');
+  const payload=encodeURIComponent(JSON.stringify({action,...body}));
+  const res=await fetch(`${SHEET_URL}?payload=${payload}`,{redirect:'follow'});
+  const text=await res.text();
+  try{return JSON.parse(text);}catch(e){throw new Error('Bad response: '+text.slice(0,100));}
 }
-
 async function syncFromSheet() {
-  if(!SHEET_URL || SHEET_URL==='YOUR_APPS_SCRIPT_URL_HERE') {
-    setSyncStatus('idle','URL not configured — see Setup Guide');
-    return;
-  }
-  setSyncStatus('warn','Syncing…');
-  showAlert('Fetching from Google Sheets…','info');
+  if(!SHEET_URL||SHEET_URL==='YOUR_APPS_SCRIPT_URL_HERE'){setSyncStatus('idle','URL not configured — see Setup Guide');return;}
+  setSyncStatus('warn','Syncing…'); showAlert('Fetching from Google Sheets…','info');
   try {
-    const data = await sheetRequest('getAll');
+    const data=await sheetRequest('getAll');
     if(data.error) throw new Error(data.error);
     if(data.categories?.length) S.categories=data.categories;
-    if(data.items?.length) {
-      S.items=data.items;
-      S.nextId=Math.max(...S.items.map(i=>parseInt(i.id)||0))+1;
-    }
+    if(data.items?.length) {S.items=data.items; S.nextId=Math.max(...S.items.map(i=>parseInt(i.id)||0))+1;}
     setSyncStatus('ok','Synced · '+new Date().toLocaleTimeString('en-SG'));
     showAlert(`Loaded ${data.items.length} items, ${data.categories.length} categories.`);
-    setTs();
-    renderDashboard();
-    if($('adminView').style.display!=='none') renderAdmin();
-  } catch(e) {
-    setSyncStatus('err','Failed: '+e.message);
-    showAlert('Sync failed: '+e.message,'err');
-  }
+    setTs(); renderDashboard(); if($('adminView').style.display!=='none') renderAdmin();
+  } catch(e) {setSyncStatus('err','Failed: '+e.message); showAlert('Sync failed: '+e.message,'err');}
 }
-
 async function pushToSheet() {
-  if(!SHEET_URL || SHEET_URL==='YOUR_APPS_SCRIPT_URL_HERE') {
-    showAlert('Configure SHEET_URL first.','err'); return;
-  }
-  setSyncStatus('warn','Pushing…');
-  showAlert('Pushing all data to Google Sheets…','info');
+  if(!SHEET_URL||SHEET_URL==='YOUR_APPS_SCRIPT_URL_HERE'){showAlert('Configure SHEET_URL first.','err');return;}
+  setSyncStatus('warn','Pushing…'); showAlert('Pushing all data…','info');
   try {
     await sheetRequest('saveCats',{categories:S.categories});
     for(const item of S.items) await sheetRequest('saveItem',{item});
     setSyncStatus('ok','Synced · '+new Date().toLocaleTimeString('en-SG'));
     showAlert('All data pushed to Google Sheets!');
-  } catch(e) {
-    setSyncStatus('err','Push failed');
-    showAlert('Push failed: '+e.message,'err');
-  }
+  } catch(e){setSyncStatus('err','Push failed'); showAlert('Push failed: '+e.message,'err');}
 }
+async function pushItemRemote(item){try{await sheetRequest('saveItem',{item});}catch(e){}}
+async function deleteItemRemote(id){try{await sheetRequest('deleteItem',{id});}catch(e){}}
+async function pushCatsRemote(){try{await sheetRequest('saveCats',{categories:S.categories});}catch(e){}}
 
-async function pushItemRemote(item) {
-  try { await sheetRequest('saveItem',{item}); } catch(e){}
-}
-async function deleteItemRemote(id) {
-  try { await sheetRequest('deleteItem',{id}); } catch(e){}
-}
-async function pushCatsRemote() {
-  try { await sheetRequest('saveCats',{categories:S.categories}); } catch(e){}
-}
+function showSetup(){$('scriptCode').textContent=APPS_SCRIPT_CODE;$('setupOverlay').classList.add('open');}
+function copyScript(){navigator.clipboard.writeText(APPS_SCRIPT_CODE).then(()=>showAlert('Script copied!')).catch(()=>showAlert('Copy manually.','err'));}
 
-// ─── SETUP GUIDE ──────────────────────────────────────────────────────────────
-// Updated Apps Script that reads from GET payload param
-const APPS_SCRIPT_UPDATED = `// Google Apps Script — paste into Extensions > Apps Script and deploy as Web App
-const ITEMS_SHEET = 'Items';
-const CATS_SHEET  = 'Categories';
-
-function doGet(e)  { return handle(e); }
-function doPost(e) { return handle(e); }
-
-function handle(e) {
-  const wrap = (data) => ContentService
-    .createTextOutput(JSON.stringify(data))
-    .setMimeType(ContentService.MimeType.JSON);
-  try {
-    let action, body = {};
-    // Read from payload param (GET) or POST body
-    const raw = (e.parameter || {}).payload;
-    if (raw) { body = JSON.parse(decodeURIComponent(raw)); action = body.action; }
-    else if (e.postData?.contents) { body = JSON.parse(e.postData.contents); action = body.action; }
-    else action = (e.parameter || {}).action;
-
-    if (action === 'getAll')     return wrap(getAll());
-    if (action === 'saveItem')   return wrap(saveItem(body.item));
-    if (action === 'deleteItem') return wrap(deleteItem(body.id));
-    if (action === 'saveCats')   return wrap(saveCats(body.categories));
-    return wrap({ error: 'Unknown action: ' + action });
-  } catch(err) { return wrap({ error: err.toString() }); }
-}
-
-function getAll() {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
-  const iRows = ss.getSheetByName(ITEMS_SHEET).getDataRange().getValues();
-  const cRows = ss.getSheetByName(CATS_SHEET).getDataRange().getValues();
-  const items = [];
-  for (let i = 1; i < iRows.length; i++) {
-    if (!iRows[i][0]) continue;
-    items.push({ id: String(iRows[i][0]), name: String(iRows[i][1]),
-                 category: String(iRows[i][2]), revs: JSON.parse(iRows[i][3] || '[]') });
-  }
-  const categories = [];
-  for (let i = 1; i < cRows.length; i++) { if (cRows[i][0]) categories.push(String(cRows[i][0])); }
-  return { ok: true, items, categories };
-}
-
-function saveItem(item) {
-  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(ITEMS_SHEET);
-  const rows = sheet.getDataRange().getValues();
-  const json = JSON.stringify(item.revs || []);
-  for (let i = 1; i < rows.length; i++) {
-    if (String(rows[i][0]) === String(item.id)) {
-      sheet.getRange(i+1,1,1,4).setValues([[item.id, item.name, item.category, json]]);
-      return { ok: true };
-    }
-  }
-  sheet.appendRow([item.id, item.name, item.category, json]);
-  return { ok: true };
-}
-
-function deleteItem(id) {
-  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(ITEMS_SHEET);
-  const rows = sheet.getDataRange().getValues();
-  for (let i = 1; i < rows.length; i++) {
-    if (String(rows[i][0]) === String(id)) { sheet.deleteRow(i+1); return { ok: true }; }
-  }
-  return { error: 'Not found' };
-}
-
-function saveCats(cats) {
-  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(CATS_SHEET);
-  sheet.clearContents();
-  sheet.appendRow(['name']);
-  cats.forEach(c => sheet.appendRow([c]));
-  return { ok: true };
-}`;
-
-function showSetup() { $('scriptCode').textContent=APPS_SCRIPT_UPDATED; $('setupOverlay').classList.add('open'); }
-function copyScript() {
-  navigator.clipboard.writeText(APPS_SCRIPT_UPDATED)
-    .then(()=>showAlert('Script copied!'))
-    .catch(()=>showAlert('Select and copy manually.','err'));
-}
-
-// ─── DASHBOARD ────────────────────────────────────────────────────────────────
+// ─── DASHBOARD ────────────────────────────────────────────────────
 function renderDashboard(filter='') {
   setTs();
   const low=S.items.filter(i=>totalQty(i)<=2).length;
@@ -844,110 +656,169 @@ function renderDashboard(filter='') {
     <div class="stat-card sc-warn"><div class="stat-label">Categories</div><div class="stat-value">${S.categories.length}</div><div class="stat-sub">Active</div></div>
     <div class="stat-card sc-red"><div class="stat-label">Low Stock</div><div class="stat-value">${low}</div><div class="stat-sub">Items ≤ 2 pcs</div></div>`;
   const fl=filter.toLowerCase();
-  const cats=S.categories.filter(cat=>getItems(cat).some(i=>!fl||i.name.toLowerCase().includes(fl)||cat.toLowerCase().includes(fl)));
-  $('catGrid').innerHTML=cats.map(cat=>{
+  const cats=S.categories.filter(c=>getItems(c).some(i=>!fl||i.name.toLowerCase().includes(fl)||c.toLowerCase().includes(fl)));
+  $('dashGrid').innerHTML=cats.map(cat=>{
     const ci=getItems(cat).filter(i=>!fl||i.name.toLowerCase().includes(fl)||cat.toLowerCase().includes(fl));
-    const tot=ci.reduce((s,i)=>s+totalQty(i),0);
-    return `<div class="cat-card">
-      <div class="cat-head"><div class="cat-title">${cat}</div><div class="cat-badge">Total: ${tot} pcs</div></div>
-      ${ci.map(item=>`<div class="item-row">
-        <div class="item-name">${item.name}</div>
-        <div class="rev-chips">${item.revs.map(r=>`
-          <div class="rev-chip${r.qty<=1?' low':''}">
-            <span class="rlabel">Rev ${r.rev}</span><span class="rqty">${r.qty}pc</span>
-          </div>`).join('')}</div>
+    return `<div class="dash-cat-card">
+      <div class="dash-cat-head">
+        <div class="dash-cat-title">${cat}</div>
+        <div class="dash-cat-badge">Total: ${ci.reduce((s,i)=>s+totalQty(i),0)} pcs</div>
+      </div>
+      ${ci.map(item=>`<div class="dash-item-row">
+        <div class="dash-item-name">${item.name}</div>
+        <div class="rev-chips">${item.revs.map(r=>`<div class="rev-chip${r.qty<=1?' low':''}"><span class="rl">Rev ${r.rev}</span><span class="rq">${r.qty}pc</span></div>`).join('')}</div>
       </div>`).join('')}
     </div>`;
   }).join('')||'<div class="empty-state" style="grid-column:1/-1">No items found.</div>';
 }
 function filterDashboard(v){renderDashboard(v);}
 
-// ─── ADMIN ────────────────────────────────────────────────────────────────────
-function renderAdmin(filter='') {
-  // Sidebar with edit/delete on each category
-  $('catList').innerHTML=[
-    `<button class="cat-btn ${S.activeCat==='ALL'?'active':''}" onclick="setAdminCat('ALL')">
-      <div class="cat-btn-inner"><span class="cat-btn-name">All Items</span><span class="cat-count">${S.items.length}</span></div>
-     </button>`,
-    ...S.categories.map((c,idx)=>`
-      <button class="cat-btn ${S.activeCat===c?'active':''}" onclick="setAdminCat(${JSON.stringify(c)})">
-        <div class="cat-btn-inner"><span class="cat-btn-name">${c}</span><span class="cat-count">${getItems(c).length}</span></div>
-        <div class="cat-actions" onclick="event.stopPropagation()">
-          <button class="cat-act-btn edit" title="Rename" onclick="openEditCat(${idx})">✏</button>
-          <button class="cat-act-btn del"  title="Delete" onclick="openDelCat(${idx})">✕</button>
+// ─── ADMIN PANEL — CARD-PER-CATEGORY ─────────────────────────────
+let adminFilter='';
+let allCollapsed=false;
+
+function renderAdmin(filter) {
+  if(filter!==undefined) adminFilter=filter;
+  const fl=adminFilter.toLowerCase();
+  const container=$('adminCards');
+  container.innerHTML='';
+
+  S.categories.forEach((cat,catIdx)=>{
+    const catItems=getItems(cat).filter(i=>!fl||i.name.toLowerCase().includes(fl)||cat.toLowerCase().includes(fl));
+    if(fl && catItems.length===0) return; // hide empty cats when searching
+
+    const isCollapsed=!!S.collapsedCats[cat];
+    const catTotal=catItems.reduce((s,i)=>s+totalQty(i),0);
+
+    const section=document.createElement('div');
+    section.className='cat-section';
+    section.id='cat-section-'+catIdx;
+
+    section.innerHTML=`
+      <!-- Category header -->
+      <div class="cat-section-head" onclick="toggleCat('${cat}')">
+        <div class="cat-section-title">
+          <span class="cat-section-name">${cat}</span>
+          <span class="cat-section-count">${catItems.length} item${catItems.length!==1?'s':''}</span>
+          <span class="cat-section-stock">· ${catTotal} pcs total</span>
         </div>
-      </button>`)
-  ].join('');
+        <div class="cat-section-actions" onclick="event.stopPropagation()">
+          <button class="btn btn-ghost btn-xs" onclick="openAddItem('${cat}')">+ Add Item</button>
+          <button class="btn btn-edit btn-xs" onclick="openEditCat(${catIdx})">✏ Rename</button>
+          <button class="btn btn-del btn-xs" onclick="openDelCat(${catIdx})">✕ Delete</button>
+          <span class="cat-chevron ${isCollapsed?'':'open'}">▼</span>
+        </div>
+      </div>
 
-  $('mainTitle').textContent=S.activeCat==='ALL'?'All Items':S.activeCat;
-  const fl=filter.toLowerCase();
-  const items=getItems(S.activeCat).filter(i=>!fl||i.name.toLowerCase().includes(fl)||i.category.toLowerCase().includes(fl));
+      <!-- Items table -->
+      <div class="cat-body ${isCollapsed?'collapsed':''}">
+        <table class="parts-table">
+          <thead>
+            <tr>
+              <th style="width:28%">Part Name</th>
+              <th>Revisions &amp; Quantity (editable)</th>
+              <th style="width:90px;text-align:center">Total</th>
+              <th style="width:130px">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${catItems.length===0
+              ? `<tr><td colspan="4"><div class="empty-state" style="padding:24px">No items in this category. Click "+ Add Item" above.</div></td></tr>`
+              : catItems.map(item=>{
+                  const tot=totalQty(item);
+                  const cls=tot<=2?'qty-low':tot<=5?'qty-warn':'qty-ok';
+                  return `<tr>
+                    <td>
+                      <div class="part-name">${item.name}</div>
+                    </td>
+                    <td>
+                      <div class="rev-table">
+                        ${item.revs.map(r=>`
+                          <div class="rev-cell">
+                            <span class="rev-cell-label">Rev ${r.rev}</span>
+                            <span style="color:var(--text3);margin:0 2px">:</span>
+                            <input class="rev-cell-input" type="number" value="${r.qty}" min="0"
+                              onchange="updateQty('${item.id}','${r.rev}',this.value)"
+                              title="Rev ${r.rev} quantity">
+                            <span class="rev-cell-unit">pc</span>
+                          </div>`).join('')}
+                      </div>
+                    </td>
+                    <td style="text-align:center">
+                      <span class="qty-badge ${cls}">${tot}<span class="qty-unit"> pcs</span></span>
+                    </td>
+                    <td>
+                      <div class="action-btns">
+                        <button class="btn btn-edit btn-sm" onclick="openEditItem('${item.id}')">✏ Edit</button>
+                        <button class="btn btn-del btn-sm" onclick="openDelItem('${item.id}')">✕</button>
+                      </div>
+                    </td>
+                  </tr>`;
+                }).join('')}
+          </tbody>
+        </table>
+      </div>`;
 
-  $('adminBody').innerHTML=!items.length
-    ?`<tr><td colspan="5"><div class="empty-state">No items here. Click "+ Add Item" to create one.</div></td></tr>`
-    :items.map(item=>{
-      const tot=totalQty(item), cls=tot<=2?'qty-low':tot<=5?'qty-warn':'qty-ok';
-      return `<tr>
-        <td><div style="font-weight:600">${item.name}</div></td>
-        <td><span class="item-code">${item.category}</span></td>
-        <td><div class="rev-edit">${item.revs.map(r=>`
-          <div class="rev-edit-chip">
-            <span>Rev ${r.rev}:</span>
-            <input type="number" value="${r.qty}" min="0" onchange="updateQty('${item.id}','${r.rev}',this.value)">
-            <span style="color:var(--text3)">pc</span>
-          </div>`).join('')}</div></td>
-        <td><span class="qty-total ${cls}">${tot}</span><span style="font-size:11px;color:var(--text3)"> pcs</span></td>
-        <td><div class="action-btns">
-          <button class="btn btn-edit btn-sm" onclick="openEditItem('${item.id}')">Edit</button>
-          <button class="btn btn-del btn-sm" onclick="openDelItem('${item.id}')">Delete</button>
-        </div></td>
-      </tr>`;
-    }).join('');
+    container.appendChild(section);
+  });
+
+  if(!container.children.length) {
+    container.innerHTML='<div class="empty-state">No categories match your search.</div>';
+  }
 }
 
-function setAdminCat(cat){S.activeCat=cat;$('adminSearch').value='';renderAdmin();}
 function filterAdmin(v){renderAdmin(v);}
 
-function updateQty(id,rev,val){
-  const item=S.items.find(i=>i.id===id); if(!item)return;
-  const r=item.revs.find(r=>r.rev===rev); if(r)r.qty=Math.max(0,parseInt(val)||0);
-  showAlert(`${item.name} · Rev ${rev} → ${r.qty} pcs`);
-  pushItemRemote(item);
-  renderAdmin($('adminSearch').value);
+function toggleCat(cat) {
+  S.collapsedCats[cat]=!S.collapsedCats[cat];
+  renderAdmin();
 }
 
-// ─── ITEM MODAL ───────────────────────────────────────────────────────────────
-function openAddItem(){
-  S.editItemId=null;
+function toggleAll() {
+  allCollapsed=!allCollapsed;
+  S.categories.forEach(c=>{ S.collapsedCats[c]=allCollapsed; });
+  document.querySelector('.admin-toolbar .btn-ghost').textContent=allCollapsed?'⊞ Expand All':'⊟ Collapse All';
+  renderAdmin();
+}
+
+function updateQty(id,rev,val) {
+  const item=S.items.find(i=>i.id===id); if(!item)return;
+  const r=item.revs.find(r=>r.rev===rev); if(r) r.qty=Math.max(0,parseInt(val)||0);
+  showAlert(`${item.name} · Rev ${rev} → ${r.qty} pcs`);
+  pushItemRemote(item);
+  // Re-render just the totals without full re-render to avoid losing focus
+  renderAdmin();
+}
+
+// ─── ITEM MODAL ───────────────────────────────────────────────────
+function openAddItem(cat) {
+  S.editItemId=null; S.defaultCatForNew=cat;
   $('itemModalTitle').textContent='Add Item';
   $('fName').value='';
-  $('fCat').innerHTML=S.categories.map(c=>`<option>${c}</option>`).join('');
-  $('revRows').innerHTML='';
-  addRevRow('A',0);
-  $('itemOverlay').classList.add('open');
-  $('fName').focus();
+  $('fCat').innerHTML=S.categories.map(c=>`<option ${c===(cat||S.categories[0])?'selected':''}>${c}</option>`).join('');
+  $('revRows').innerHTML=''; addRevRow('A',0);
+  $('itemOverlay').classList.add('open'); $('fName').focus();
 }
-function openEditItem(id){
+function openEditItem(id) {
   const item=S.items.find(i=>i.id===id); if(!item)return;
   S.editItemId=id;
-  $('itemModalTitle').textContent='Edit Item';
+  $('itemModalTitle').textContent='Edit Item — '+item.name;
   $('fName').value=item.name;
   $('fCat').innerHTML=S.categories.map(c=>`<option ${c===item.category?'selected':''}>${c}</option>`).join('');
-  $('revRows').innerHTML='';
-  item.revs.forEach(r=>addRevRow(r.rev,r.qty));
+  $('revRows').innerHTML=''; item.revs.forEach(r=>addRevRow(r.rev,r.qty));
   $('itemOverlay').classList.add('open');
 }
-function addRevRow(rev='',qty=0){
+function addRevRow(rev='',qty=0) {
   const d=document.createElement('div'); d.className='rev-row';
   d.innerHTML=`
     <input class="form-input" placeholder="Rev (A)" value="${rev}"
-      style="font-family:'JetBrains Mono',monospace;text-align:center"
+      style="font-family:'JetBrains Mono',monospace;text-align:center;font-weight:600"
       oninput="this.value=this.value.toUpperCase()">
-    <input class="form-input" type="number" placeholder="Qty" value="${qty}" min="0">
+    <input class="form-input" type="number" placeholder="Qty (pcs)" value="${qty}" min="0">
     <button class="btn btn-del btn-sm" onclick="this.parentElement.remove()">✕</button>`;
   $('revRows').appendChild(d);
 }
-function saveItem(){
+function saveItem() {
   const name=$('fName').value.trim(), cat=$('fCat').value;
   if(!name){showAlert('Item name is required.','err');return;}
   const revs=Array.from($('revRows').querySelectorAll('.rev-row')).map(row=>{
@@ -961,74 +832,51 @@ function saveItem(){
     item.name=name; item.category=cat; item.revs=revs;
     showAlert(`"${name}" updated.`);
   } else {
-    item={id:String(S.nextId++), name, category:cat, revs};
-    S.items.push(item);
-    showAlert(`"${name}" added.`);
+    item={id:String(S.nextId++),name,category:cat,revs};
+    S.items.push(item); showAlert(`"${name}" added to ${cat}.`);
   }
-  pushItemRemote(item);
-  closeOverlay('itemOverlay');
-  renderAdmin($('adminSearch').value);
+  pushItemRemote(item); closeOverlay('itemOverlay'); renderAdmin();
 }
 
-// ─── CATEGORY CRUD ────────────────────────────────────────────────────────────
+// ─── CATEGORY CRUD ────────────────────────────────────────────────
 function openAddCat(){
-  S.editCatIdx=null;
-  $('catModalTitle').textContent='Add Category';
-  $('fCatName').value='';
-  $('catOverlay').classList.add('open');
-  $('fCatName').focus();
+  S.editCatIdx=null; $('catModalTitle').textContent='Add Category';
+  $('fCatName').value=''; $('catOverlay').classList.add('open'); $('fCatName').focus();
 }
 function openEditCat(idx){
-  S.editCatIdx=idx;
-  $('catModalTitle').textContent='Rename Category';
-  $('fCatName').value=S.categories[idx];
-  $('catOverlay').classList.add('open');
-  $('fCatName').focus();
+  S.editCatIdx=idx; $('catModalTitle').textContent='Rename Category';
+  $('fCatName').value=S.categories[idx]; $('catOverlay').classList.add('open'); $('fCatName').focus();
 }
 function saveCat(){
   const name=$('fCatName').value.trim();
   if(!name){showAlert('Name required.','err');return;}
   if(S.editCatIdx!==null){
-    const oldName=S.categories[S.editCatIdx];
-    // Rename all items in this category
-    S.items.forEach(i=>{ if(i.category===oldName) i.category=name; });
+    const old=S.categories[S.editCatIdx];
+    S.items.forEach(i=>{if(i.category===old) i.category=name;});
     S.categories[S.editCatIdx]=name;
-    if(S.activeCat===oldName) S.activeCat=name;
-    showAlert(`Category renamed to "${name}".`);
+    showAlert(`Renamed to "${name}".`);
   } else {
     if(S.categories.includes(name)){showAlert('Already exists.','err');return;}
-    S.categories.push(name);
-    showAlert(`Category "${name}" added.`);
+    S.categories.push(name); showAlert(`"${name}" added.`);
   }
-  pushCatsRemote();
-  closeOverlay('catOverlay');
-  renderAdmin($('adminSearch').value);
+  pushCatsRemote(); closeOverlay('catOverlay'); renderAdmin();
 }
-
 function openDelCat(idx){
-  S.delCatIdx=idx;
-  const cat=S.categories[idx];
-  const count=getItems(cat).length;
+  S.delCatIdx=idx; const cat=S.categories[idx]; const n=getItems(cat).length;
   $('delCatName').textContent=cat;
-  $('delCatWarn').textContent=count>0
-    ?`⚠ This category has ${count} item(s). They will become uncategorised.`
-    :'This category has no items.';
+  $('delCatWarn').textContent=n>0?`⚠ ${n} item(s) will be moved to the next category.`:'This category is empty.';
   $('delCatOverlay').classList.add('open');
 }
 function confirmDelCat(){
   const cat=S.categories[S.delCatIdx];
-  // Move items to first remaining category or mark uncategorised
   const remaining=S.categories.filter((_,i)=>i!==S.delCatIdx);
-  S.items.forEach(i=>{ if(i.category===cat) i.category=remaining[0]||'Uncategorised'; });
+  S.items.forEach(i=>{if(i.category===cat) i.category=remaining[0]||'Uncategorised';});
   S.categories.splice(S.delCatIdx,1);
-  if(S.activeCat===cat) S.activeCat='ALL';
-  pushCatsRemote();
-  closeOverlay('delCatOverlay');
-  showAlert(`Category "${cat}" deleted.`);
-  renderAdmin($('adminSearch').value);
+  pushCatsRemote(); closeOverlay('delCatOverlay');
+  showAlert(`Category "${cat}" deleted.`); renderAdmin();
 }
 
-// ─── ITEM DELETE ──────────────────────────────────────────────────────────────
+// ─── ITEM DELETE ──────────────────────────────────────────────────
 function openDelItem(id){
   S.delItemId=id;
   $('delItemName').textContent=S.items.find(i=>i.id===id)?.name||'';
@@ -1037,20 +885,18 @@ function openDelItem(id){
 function confirmDelItem(){
   const item=S.items.find(i=>i.id===S.delItemId);
   S.items=S.items.filter(i=>i.id!==S.delItemId);
-  deleteItemRemote(S.delItemId);
-  closeOverlay('delItemOverlay');
-  showAlert(`"${item?.name}" deleted.`);
-  renderAdmin($('adminSearch').value);
+  deleteItemRemote(S.delItemId); closeOverlay('delItemOverlay');
+  showAlert(`"${item?.name}" deleted.`); renderAdmin();
 }
 
 function closeOverlay(id){$(id).classList.remove('open');}
 document.addEventListener('keydown',e=>{
-  if(e.key==='Escape') ['itemOverlay','catOverlay','delItemOverlay','delCatOverlay','setupOverlay'].forEach(closeOverlay);
+  if(e.key==='Escape')['itemOverlay','catOverlay','delItemOverlay','delCatOverlay','setupOverlay'].forEach(closeOverlay);
 });
 
-// ─── INIT ─────────────────────────────────────────────────────────────────────
-$('scriptCode').textContent=APPS_SCRIPT_UPDATED;
-setSyncStatus('idle', SHEET_URL==='YOUR_APPS_SCRIPT_URL_HERE' ? 'URL not configured — see Setup Guide' : 'Ready to sync');
+// ─── INIT ─────────────────────────────────────────────────────────
+$('scriptCode').textContent=APPS_SCRIPT_CODE;
+setSyncStatus('idle', SHEET_URL==='YOUR_APPS_SCRIPT_URL_HERE'?'URL not configured — see Setup Guide':'Ready to sync');
 $('loginUser').focus();
 renderDashboard();
 </script>
