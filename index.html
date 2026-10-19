@@ -304,6 +304,7 @@ const sum = a => a.reduce((s, x) => s + (Number(x.qty) || 0), 0);
 const sheetOn = () => !!SHEET_URL && !SHEET_URL.includes('YOUR_');
 const num = v => Math.max(0, parseInt(v, 10) || 0);
 const isLow = q => q <= LOW;
+const byName = (a, b) => a.name.localeCompare(b.name, undefined, { numeric: true, sensitivity: 'base' }); // A→Z package order
 const stamp = () => new Date().toLocaleString('en-SG', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
 
 function badge(q) {
@@ -331,11 +332,11 @@ function seed() {
   add(pk[0], 1, 'DWG-S8-BCB-001', 3); add(pk[0], 2, 'DWG-S8-TCL-001', 2); add(pk[0], 3, 'DWG-S8-BCL-001', 0, 'On order');
   add(pk[1], 0, 'DWG-TO-TCB-101', 5); add(pk[1], 1, 'DWG-TO-BCB-101', 1); add(pk[1], 2, 'DWG-TO-TCL-101', 6); add(pk[1], 3, 'DWG-TO-BCL-101', 3);
   add(pk[2], 0, 'DWG-SOT-TCB-201', 2); add(pk[2], 1, 'DWG-SOT-BCB-201', 4); add(pk[2], 3, 'DWG-SOT-BCL-201', 1);
-  return { packages: pk, parts };
+  return { packages: pk.sort(byName), parts };
 }
 function normalise(d) {
   return {
-    packages: (d.packages || []).map(p => ({ id: String(p.id), name: String(p.name), subs: (p.subs || []).map(s => ({ id: String(s.id), name: String(s.name) })) })),
+    packages: (d.packages || []).map(p => ({ id: String(p.id), name: String(p.name), subs: (p.subs || []).map(s => ({ id: String(s.id), name: String(s.name) })) })).sort(byName),
     parts: (d.parts || []).map(x => ({ id: String(x.id), pkg: String(x.pkg), sub: String(x.sub), partNo: String(x.partNo ?? ''), qty: num(x.qty), remark: String(x.remark || '') }))
   };
 }
@@ -682,12 +683,12 @@ document.addEventListener('click', e => {
         onOk(v) {
           if (DB.packages.some(k => k.name.toLowerCase() === v.name.toLowerCase())) return 'A package with this name already exists.';
           const k = { id: uid(), name: v.name, subs: v.subs ? DEFAULT_SUBS.map(n => ({ id: uid(), name: n })) : [] };
-          DB.packages.push(k); A.pkg = k.id; commit(); toast(`Package "${v.name}" added.`);
+          DB.packages.push(k); DB.packages.sort(byName); A.pkg = k.id; commit(); toast(`Package "${v.name}" added.`);
         } }); break;
     case 'renamePkg':
       openForm({ title: 'Rename Package', fields: [{ key: 'name', label: 'Package name', value: p.name, required: true }], onOk(v) {
         if (DB.packages.some(k => k.id !== p.id && k.name.toLowerCase() === v.name.toLowerCase())) return 'A package with this name already exists.';
-        p.name = v.name; commit(); toast('Package renamed.'); } }); break;
+        p.name = v.name; DB.packages.sort(byName); commit(); toast('Package renamed.'); } }); break;
     case 'delPkg': {
       const n = partsInPkg(p.id).length;
       openForm({ title: 'Delete Package', danger: true, okLabel: 'Delete Package', message: `Delete <b>${esc(p.name)}</b> and its ${p.subs.length} subcategories${n ? ` including <b>${n} part(s)</b>` : ''}? This cannot be undone.`,
